@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Smooch&display=swap" rel="stylesheet">
+</head>
+<body onload="initUI()">
+       
+
+    <div class="todoapp" id="main1">
+        <div id="modal-box">
+            <div id="modal">
+                <div id="modal-body">
+                    <div>
+                    <button id="close-modal">&times;</button>
+                </div>
+                    
+                    <div class="modal-div"><label>Task Title</label>
+                        <input type="text" id="titleInput" placeholder="Enter Task Tilte">
+                    </div>
+                    
+                    <div id="msg"></div>
+                    <br>
+                    <div class="modal-div"> 
+                        <label>Due Date</label>
+                        <input type="date" id="dateInput" >
+                    </div>
+                   
+                    <br>
+                    <p>Description</p>
+                    <textarea name="" id="description" cols="50" rows="10" style="width: 612px;"
+                    "height: 187px;"></textarea><br>
+                    <input type="hidden" name="" id="taskid">
+                    <button id="addBtn" class="addBtn"> Add </button>
+                    <button id="updateBtn"  class="addBtn"> Update Todo </button>
+
+
+                </div>
+                
+            </div>
+        </div>
+
+    
+        <h2>2DO App</h2>
+        <div>
+            <span id="new">Add New Task <button id="popup-modal"><i class="fas fa-plus" data-open="addTaskModal"></i></button></span>
+            
+        </div>
+    <h3>Tasks</h3>
+    <div id="tasks">
+        
+    </div>
+        
+   
+    <script src="main.js"></script>
+</body>
+</html>
