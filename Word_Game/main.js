@@ -53,7 +53,7 @@ function initUI(){
 }
 
 function pick_A_Word() {
-  let wordObj = wordList[Math.floor(Math.random() * wordList.length)];
+  let wordObj = wordList[Math.floor(Math.random() * wordList.length)];//getting an integer from
   word2 = wordObj.word; // remove word from wordObj
   maxGuesses = 8;
   incorrects = [];

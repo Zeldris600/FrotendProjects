@@ -102,7 +102,7 @@ let createTasks = () => {
         <span>${x.date}</span>
         <p>${x.description}</p>
           <span class="options">
-            <i class="fas fa-check"></i>
+            
             <i  onClick ="editTask(${x.id})"  class="fas fa-edit"></i>
             <i  onClick ="deleteTask(this)" class="fas fa-trash-alt"></i>
             
