@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="box.css" />
+    <title>Document</title>
+  </head>
+  <body>
+        <div id="box">
+            <h1 id="here">Counter...</h1>
+            <p>On mouse over!!</p>
+          </div>
+    
+    <script>
+      let box,here,
+        counter = 0;
+      box = document.getElementById("box");
+      here = document.getElementById("here")
+      setInterval(function () {
+       counter+= 5;
+        if (counter % 10 == 0) {
+          box.style.cssText = `
+          background-color: green;
+          color: white;
+          border: blue;
+          `
+         // box.style.border = "orange";
+           here.innerHTML = ` Counter at: ${counter}`
+        } else
+          box.style.cssText = `
+          border: 2px solid orange;
+          border-radius: 15px;
+          width: 200px;`;
+          //here.innerHTML = `Counter not multiple of 10`
+      }, 2000); 
+    </script>
+  </body>
+</html>
