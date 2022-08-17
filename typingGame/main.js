@@ -1,67 +1,87 @@
- let questions = [{
-     q: "The most deadliest animal in the world?",
-     a: "Mosquito"
- },{
-     q: "Capital city of Morocco?",
-     a: "Rabbat"
- },{
+let questions = [
+  {
+    q: "The most deadliest animal in the world?",
+    a: "Mosquito",
+  },
+  {
+    q: "Capital city of Morocco?",
+    a: "Rabbat",
+  },
+  {
     q: "Most wins in WAFCON?",
-    a: "Nigeria"
-},{
+    a: "Nigeria",
+  },
+  {
     q: "The most popular language for web development?",
-    a: "JavaScript"
-},{
+    a: "JavaScript",
+  },
+  {
     q: "Used for styling web pages?",
-    a: "CSS"
-},{
+    a: "CSS",
+  },
+  {
     q: "Who carries the nine-tailed fox?",
-    a: "Naruto Uzimaki"
-},{
+    a: "Naruto Uzimaki",
+  },
+  {
     q: "Name of the stone hashira in Demon Slayer Corp?",
-    a: "Tengen"
-}];
-let inputs,questionOut,score,submit,pass,myQuestion;
-function initUI(){
-    inputs = document.getElementById("inputs");
-    questionOut = document.getElementById("question");
-    score = document.getElementById("score");
-    submit = document.getElementById("submit");
-    pass = document.getElementById("pass1");
-    console.log("yes,I'M WORKING!");
-    getQuestion();
+    a: "Tengen",
+  },
+];
+let inputs, out, score, ok, next, myQuestion, points, nbq;
+function initUI() {
+  inputs = document.getElementById("inputs");
+  out = document.getElementById("questionOut");
+  score = document.getElementById("score");
+  ok = document.getElementById("submit");
+  ok.addEventListener("click",checkAnswer)
+  next = document.getElementById("pass1");
+  next.addEventListener("click", gonext)
+  selectQuestion()
+  gonext()
+}
+self.addEventListener("load", initUI)
+let  q = questions[Math.floor(Math.random() * questions.length)]
+let selectQuestion = ()=>{
+   
+     questions = questions.filter(x => x.q !== q.q)
+     out.innerHTML = q.q
+ }
+
+
+nbq = questions.length;
+points = 0;
+let check = () => {
+  let st = questions.length;
+  if (st == 0) {
+    if (((points / nbq) * 100) >= 50) {
+      alert("congrats");
+    } else {
+      alert("failed");
+    }
+    return true;
+  } else {
+    return false;
+  }
+};
+
+
+
+let checkAnswer = ()=>{
+    let answer = q.a
+ if(answer.toLowerCase() === inputs.value.toLowerCase()){
+     points++;
+     score.innerHTML = `<h1>You have ${points} point`
+     gonext()
+ }else{
+     alert("Wrong Answer try again!")
+ }
 }
 
-if (pass) {
-    pass.addEventListener("click",()=>console.log("found element"))
-}
-
-/* pass.addEventListener("click", getQuestion); */
-self.addEventListener("load",initUI)
-
-let question2 = questions[Math.floor(Math.random() *questions.length)]
-function getQuestion(){
-    myQuestion = question2.q
-    /* console.log(myQuestion) */
-    let out = `<h2>${myQuestion}</h2>`;
-    questionOut.innerHTML= out;
-}
-
-function getAnswer(){
-  let  myAnswer = question2.a
-  inputs.value
-  let score2= []
-  if (inputs.value ==myAnswer) {
-      score2.push(score2++)
-    score.innerHTML = `Points: <h1>${score2}</h1>`
-    inputs.value = "";
+let gonext = ()=>{
+    if(check()){
+        alert("Game Over")
+    }else{
+        selectQuestion()
     }
 }
-
-
-
- function pick(){
-    let q3 = questions[Math.floor(Math.random() *questions.length)];
-    q4 = q3.a
-    q5 = q3.q
-} 
-
