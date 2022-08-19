@@ -14,10 +14,12 @@ function List() {
   this.prev1 = prev1; // moves current position back one element
   this.next1 = next1; // moves current position forward one element
   this.length = length; // returns number of elements in list
-  this.currPos1 = this.currPos1; // returns current position in list
+  this.currPos1 = currPos1; // returns current position in list
   this.moveTo = moveTo; // move current position to specified position
   this.getElement1 = getElement1; // returns element at current position
   this.contains1 = contains1;
+  this.iteratorForward = iteratorForward;
+  this.iteratorBackward = iteratorBackward;
 
   function append(element){ // function appends new element onto list at next available position, which will be equal to the listSize variable
 this.dataStore[this.listSize++] = element
@@ -137,6 +139,30 @@ function moveTo(position){
 function getElement1(){
     return this.dataStore[this.pos]
 }
+// Traversing a list using an iterator
+
+/* Why do we need an iterator rather than array indexing?
+1- Not having to worry about underlying data storage structure
+2- Being able to update the list without updating the iterator
+3- Accesing uniformly elements for different data stores used in the List class implementation
+*/
+
+
+// Using an iterator to traverse forwardly through a list
+function iteratorForward(){
+for(names.front1(); names.currPos1()< names.length; names.next1() ){
+    console.log(names.getElement1());
+}
+}
+
+function iteratorBackward(){
+    for(names.end1(); names.currPos1() >= 0; names.prev1()){
+        console.log(names.getElement1());
+    }
+}
+
+
+
 }
 
 let names = new List();
@@ -148,3 +174,14 @@ names.append('Madara');
 names.append('Nezuko');
 names.append('Tanjiro');
 names.append('Tengen');
+
+
+function createArr(file){
+    let arr = read(file).split('\n');
+    for(let i =0; i < arr.length; i++){
+        arr[i] = arr[i].trim();
+    }
+    return arr
+}
+
+console.log(createArr(lists.txt));   
